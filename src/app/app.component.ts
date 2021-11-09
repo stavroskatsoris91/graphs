@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TransactionService } from './services/transaction.service';
 
 @Component({
@@ -9,9 +10,7 @@ import { TransactionService } from './services/transaction.service';
 
 export class AppComponent {
   title = 'graph-project';
+  public transactionsList: Observable<string[][]> = this.transactions.getTransaction();
   constructor(private readonly transactions: TransactionService){
-    this.transactions.getTransaction().subscribe((res)=>{
-    console.log(res)
-    })
   }
 }

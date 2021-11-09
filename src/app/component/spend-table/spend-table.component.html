@@ -1,0 +1,16 @@
+<div class="center">
+    <div class="pagination">
+        <a href="#" (click)="selectedPage = 0">&laquo;</a>
+        <a href="#" *ngFor="let number of pageArray" [class.active]="number==selectedPage"
+            (click)="selectedPage = number">{{number+1}}</a>
+        <a href="#" (click)="selectedPage = this.pages-1">&raquo;</a>
+    </div>
+</div>
+<table>
+    <tr>
+        <th *ngFor="let head of spendsHeader">{{head}}</th>
+    </tr>
+    <tr *ngFor="let body of spendsBodyPaginated">
+        <td *ngFor="let value of body">{{value}}</td>
+    </tr>
+</table>

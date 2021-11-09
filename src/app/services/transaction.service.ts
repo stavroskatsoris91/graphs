@@ -30,7 +30,7 @@ export class TransactionService {
             });
           });
         })
-        ,map((res:ParseResult):string[]=>{
+        ,map((res:ParseResult):string[][]=>{
           return res.data.slice(4)
         })
       );
