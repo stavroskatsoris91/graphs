@@ -1,1 +1,17 @@
-<p>graph works!</p>
+<div class="graphPanel">
+    <div class="graphArea">
+        <div class="axisY" #axisY>
+            <div class="Yvalue" [style.height]="(axisY.clientHeight/yValues.length)+'px'" *ngFor="let y of yValues">
+                {{y | roundNumber}}
+            </div>
+        </div>
+        <div class="axisX" #axisX>
+            <div class="Xvalue" [style.width]="(axisX.clientWidth/xValues.length)+'px'" *ngFor="let x of xValues">
+                <div class="Xname">{{x[0]}}</div>
+                <div class="bar" [style.top]="-axisY.clientHeight*x[1]/maxValue+'px'" [style.height]="axisY.clientHeight*x[1]/maxValue+'px'">
+                    <div class="barValue">{{x[1] | roundNumber}}</div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

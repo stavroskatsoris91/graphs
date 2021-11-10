@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { SpendTableComponent } from './components/spend-table/spend-table.component';
 import { PagingComponent } from './components/paging/paging.component';
 import { GraphComponent } from './components/graph/graph.component';
+import { RoundNumberPipe } from './round-number.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpendTableComponent,
     PagingComponent,
-    GraphComponent
+    GraphComponent,
+    RoundNumberPipe
   ],
   imports: [
     BrowserModule,
