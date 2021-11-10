@@ -1,0 +1,9 @@
+<app-paging [pages]="pages" [selectedPage]="selectedPage" (selectPage)="newPage($event)"></app-paging>
+<table>
+    <tr>
+        <th *ngFor="let head of spendsHeader">{{head}}</th>
+    </tr>
+    <tr *ngFor="let body of spendsBodyPaginated">
+        <td *ngFor="let value of body">{{value}}</td>
+    </tr>
+</table>

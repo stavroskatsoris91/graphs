@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { SpendTableComponent } from './component/spend-table/spend-table.component';
+import { SpendTableComponent } from './components/spend-table/spend-table.component';
+import { PagingComponent } from './components/paging/paging.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpendTableComponent
+    SpendTableComponent,
+    PagingComponent
   ],
   imports: [
     BrowserModule,

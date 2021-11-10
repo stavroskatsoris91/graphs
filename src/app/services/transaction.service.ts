@@ -31,7 +31,9 @@ export class TransactionService {
           });
         })
         ,map((res:ParseResult):string[][]=>{
-          return res.data.slice(4)
+          // remove the first 3 row of the csv, not needed
+          // the last because it empty
+          return res.data.slice(4,res.data.length-1)
         })
       );
   }

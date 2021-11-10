@@ -1,0 +1,8 @@
+<div class="center">
+    <div class="pagination">
+        <a href="#" (click)="selectPageAction(0)">&laquo;</a>
+        <a href="#" *ngFor="let number of pageArray" [class.active]="number==selectedPage"
+            (click)="selectPageAction(number)">{{number+1}}</a>
+        <a href="#" (click)="selectPageAction(this.pages-1)">&raquo;</a>
+    </div>
+</div>

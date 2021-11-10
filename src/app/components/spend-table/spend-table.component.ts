@@ -9,8 +9,8 @@ export class SpendTableComponent implements OnInit {
 
   @Input() spends:string[][] | undefined | null
 
-  rows = 10;
-  selectedPage = 0;
+  rows:number = 10;
+  selectedPage:number = 0
   constructor() { }
 
   ngOnInit(): void {
@@ -29,9 +29,7 @@ export class SpendTableComponent implements OnInit {
     const position = this.selectedPage*this.rows;
     return this.spendsBody.slice(position,position+this.rows)
   }
-  get pageArray():number[]{
-    const min = Math.max(0,this.selectedPage-3)
-    const max = Math.min(this.pages,this.selectedPage+3)
-    return Array.from(new Array(this.pages),((_:any,i:number)=>i)).slice(min,max)
+  newPage(page: number){
+    this.selectedPage = page;
   }
 }
