@@ -304,8 +304,8 @@
 
 <!-- Toolbar -->
 <div>
-  <app-spend-table [spends]="transactionsList | async"></app-spend-table>
-
+  <app-spend-table [spends]="(transactionsList | async)"></app-spend-table>
+  <app-graph [spends]="transactionsList | async"></app-graph>
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
