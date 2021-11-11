@@ -7,11 +7,8 @@
         </div>
         <div class="axisX" #axisX>
             <div class="Xvalue" [style.width]="(axisX.clientWidth/xValues.length)+'px'" *ngFor="let x of xValues">
+                <app-bar [maxHeight]="axisY.clientHeight" [value]="x[1]" [maxValue]="maxValue"></app-bar>
                 <div class="Xname">{{x[0]}}</div>
-                <div class="bar" [style.top]="-axisY.clientHeight*x[1]/maxValue+'px'" [style.height]="axisY.clientHeight*x[1]/maxValue+'px'">
-                    <div class="barValue">{{x[1] | roundNumber}}</div>
-                </div>
             </div>
-        </div>
     </div>  
 </div>

@@ -7,6 +7,7 @@ import { SpendTableComponent } from './components/spend-table/spend-table.compon
 import { PagingComponent } from './components/paging/paging.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { RoundNumberPipe } from './round-number.pipe';
+import { BarComponent } from './components/bar/bar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RoundNumberPipe } from './round-number.pipe';
     SpendTableComponent,
     PagingComponent,
     GraphComponent,
-    RoundNumberPipe
+    RoundNumberPipe,
+    BarComponent
   ],
   imports: [
     BrowserModule,

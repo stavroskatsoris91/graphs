@@ -30,8 +30,6 @@ export class GraphComponent implements OnInit {
   three:any = new Map<string,number>([])
   four:any = new Map<string,number>([])
   five:any = new Map<string,number>([])
-  axisX = {}
-  axisY = {}
   maxValue =100;
   xValues:any[] = [];
   yValues:any[] = [];
