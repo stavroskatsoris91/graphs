@@ -1,17 +1,5 @@
 <select [(ngModel)]="selectedColumn" (ngModelChange)="this.setGraph()">
     <option *ngFor="let value of header" [value]="value[1]"> {{value[0]}}</option>
 </select>
-<div class="graphPanel">
-    <div class="graphArea">
-        <div class="axisY" #axisY>
-            <div class="Yvalue" [style.height]="(axisY.clientHeight/yValues.length)+'px'" *ngFor="let y of yValues">
-                {{y | roundNumber}}
-            </div>
-        </div>
-        <div class="axisX" #axisX>
-            <div class="Xvalue" [style.width]="(axisX.clientWidth/xValues.length)+'px'" *ngFor="let x of xValues">
-                <app-bar [maxHeight]="axisY.clientHeight" [value]="x[1]" [maxValue]="maxYValue"></app-bar>
-                <div class="Xname">{{x[0]}}</div>
-            </div>
-    </div>  
-</div>
+<app-bar-chart [report]="reportBest5"></app-bar-chart>
+<app-line-chart [report]="reportDailyCosts"></app-line-chart>

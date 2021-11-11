@@ -1,0 +1,35 @@
+.point {
+    width: 10px;
+    height: 10px;
+    background-color: #04aa6d;
+    border: 2px solid #035537;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transform: translate(-40%, -40%);
+    top: 0;
+    transition: top 1s;
+    .pointValue {
+        position: absolute;
+        width: 100%;
+        bottom: 100%;
+        display: none;
+        margin-bottom: 4px;
+    }
+
+    &:hover {
+        .pointValue {
+            display: block;
+        }
+    }
+}
+.line{
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #7fc2eb;
+    transform-origin: left bottom;
+    top: 0;
+    transform: rotate(0deg);
+    transition: top 1s, transform 1s;
+}

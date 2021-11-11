@@ -1,0 +1,4 @@
+<div class="point" [style.top]="(-pointPosition)+'px'">
+    <div class="pointValue">{{value | roundNumber}}</div>
+</div>
+<div class="line" [style.top]="(-pointPosition)+'px'" [style.width]="lineWidth+'px'" [style.transform]="'rotate('+rotation+'deg)'"></div>

@@ -18,40 +18,48 @@ export class GraphComponent implements OnInit {
   _list: string[][] = [[]];
   selectedColumn = 4;
   _priceColumn = 7;
+  _dateColumn = 2;
   valueMap: any = new Map<string, number>([]);
   header:any
-  xValues: any[] = [];
-  maxYValue = 0;
-
-  yValues: any[] = [];
-  yLength:number = 10;
-
-  constructor() {}
+  reportBest5:[string,number][] = [];
+  reportDailyCosts:[number,number][] = [];
 
   ngOnInit(): void {}
 
   setGraph() {
-    const { _list, _priceColumn, yLength, selectedColumn } = this;
-    this.valueMap = new Map<string, number>([]);
+    this.reportBest5 = this.getBestFive()
+    this.reportDailyCosts = this.getDailyCosts();
+    
+  }
+  getBestFive(){
+    const { _list, _priceColumn, selectedColumn } = this;
+    const valueMap = new Map<string, number>([]);
     _list.map((row) => {
       this.valuePrice(
-        this.valueMap,
+        valueMap,
         row[selectedColumn],
         Number(row[_priceColumn])
       );
     });
 
-    this.xValues = [...this.valueMap.entries()]
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 5);
-    this.maxYValue = this.xValues[0][1];
-
-    this.yValues = Array.from(new Array(yLength), (_: any, i: number) => {
-      const part = this.maxYValue / yLength;
-      return (i + 1) * part;
-    }).slice().reverse();
+    return [...valueMap.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
   }
-  valuePrice(map: any, value: string, price: number) {
+  getDailyCosts(){
+    const { _list, _priceColumn, _dateColumn } = this;
+    const valueMap = new Map<number, number>([]);
+    _list.map((row) => {
+      this.valuePrice(
+        valueMap,
+        this.dateFormat(row[_dateColumn]),
+        Number(row[_priceColumn])
+      );
+    });
+    return [...valueMap.entries()];
+  }
+  dateFormat(dateInput:string){
+    return new Date(dateInput.split('/').reverse().join('-')).getTime();
+  }
+  valuePrice(map: any, value: string|number, price: number) {
     map.has(value)
       ? map.set(value, map.get(value) + price)
       : map.set(value, price);

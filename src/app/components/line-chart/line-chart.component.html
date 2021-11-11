@@ -1,0 +1,14 @@
+<div class="graphPanel">
+    <div class="graphArea">
+        <div class="axisY" #axisY>
+            <div class="Yvalue" [style.height]="(axisY.clientHeight/valuesY.length)+'px'" *ngFor="let y of valuesY">
+                {{y | roundNumber}}
+            </div>
+        </div>
+        <div class="axisX" #axisX>
+            <div class="Xvalue" [style.width]="(axisX.clientWidth/report.length)+'px'" *ngFor="let x of report; let i = index">
+                <app-line [maxHeight]="axisY.clientHeight/maxValue" [width]="(axisX.clientWidth/report.length)" [value]="x[1]" [nextValue]="report[i+1]&&report[i+1][1]"></app-line>
+                <div class="Xname">{{x[0] | date: 'd/M'}}</div>
+            </div>
+    </div>  
+</div>

@@ -9,6 +9,9 @@ import { GraphComponent } from './components/graph/graph.component';
 import { RoundNumberPipe } from './round-number.pipe';
 import { BarComponent } from './components/bar/bar.component';
 import { FormsModule } from '@angular/forms';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { LineComponent } from './components/line/line.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { FormsModule } from '@angular/forms';
     PagingComponent,
     GraphComponent,
     RoundNumberPipe,
-    BarComponent
+    BarComponent,
+    BarChartComponent,
+    LineChartComponent,
+    LineComponent
   ],
   imports: [
     BrowserModule,
