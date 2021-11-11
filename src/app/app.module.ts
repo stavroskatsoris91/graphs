@@ -8,6 +8,7 @@ import { PagingComponent } from './components/paging/paging.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { RoundNumberPipe } from './round-number.pipe';
 import { BarComponent } from './components/bar/bar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BarComponent } from './components/bar/bar.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

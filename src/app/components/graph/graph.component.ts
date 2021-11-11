@@ -6,40 +6,54 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./graph.component.scss'],
 })
 export class GraphComponent implements OnInit {
-  @Input() set spends(value: string[][] | null){
-
-    if(value){
-      let list = value.slice(1)
-
-      for(let i=0;i<list.length;i++){
-        this.valuePrice(this.three,list[i][3],Number(list[i][7]))
-        this.valuePrice(this.four,list[i][4],Number(list[i][7]))
-        this.valuePrice(this.five,list[i][5],Number(list[i][7]))
-      }
-      console.log(this.three,this.four,this.five)
-      this.xValues = [...this.four.entries()].sort((a, b) => b[1] - a[1]).slice(0,5)
-      this.maxValue = this.xValues[0][1]
-      this.yValues = Array.from(new Array(10),(_:any,i:number)=>{
-        const part = this.maxValue / 10;
-        return (i+1)*part;
-      }).slice().reverse()
+  @Input() set spends(value: string[][] | null) {
+    if (value) {
+      this.header = value[0].map((v,i)=>[v,i]).slice(3,6);
+      this._list = value.slice(1);
+      this.setGraph();
     }
   }
 
 
-  three:any = new Map<string,number>([])
-  four:any = new Map<string,number>([])
-  five:any = new Map<string,number>([])
-  maxValue =100;
-  xValues:any[] = [];
-  yValues:any[] = [];
+  _list: string[][] = [[]];
+  selectedColumn = 4;
+  _priceColumn = 7;
+  valueMap: any = new Map<string, number>([]);
+  header:any
+  xValues: any[] = [];
+  maxYValue = 0;
+
+  yValues: any[] = [];
+  yLength:number = 10;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  valuePrice(map:any,value:string,price:number){
+  setGraph() {
+    const { _list, _priceColumn, yLength, selectedColumn } = this;
+    this.valueMap = new Map<string, number>([]);
+    _list.map((row) => {
+      this.valuePrice(
+        this.valueMap,
+        row[selectedColumn],
+        Number(row[_priceColumn])
+      );
+    });
 
-    map.has(value)? map.set(value,map.get(value)+price): map.set(value,price)
+    this.xValues = [...this.valueMap.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+    this.maxYValue = this.xValues[0][1];
+
+    this.yValues = Array.from(new Array(yLength), (_: any, i: number) => {
+      const part = this.maxYValue / yLength;
+      return (i + 1) * part;
+    }).slice().reverse();
+  }
+  valuePrice(map: any, value: string, price: number) {
+    map.has(value)
+      ? map.set(value, map.get(value) + price)
+      : map.set(value, price);
   }
 }

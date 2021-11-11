@@ -1,3 +1,6 @@
+<select [(ngModel)]="selectedColumn" (ngModelChange)="this.setGraph()">
+    <option *ngFor="let value of header" [value]="value[1]"> {{value[0]}}</option>
+</select>
 <div class="graphPanel">
     <div class="graphArea">
         <div class="axisY" #axisY>
@@ -7,7 +10,7 @@
         </div>
         <div class="axisX" #axisX>
             <div class="Xvalue" [style.width]="(axisX.clientWidth/xValues.length)+'px'" *ngFor="let x of xValues">
-                <app-bar [maxHeight]="axisY.clientHeight" [value]="x[1]" [maxValue]="maxValue"></app-bar>
+                <app-bar [maxHeight]="axisY.clientHeight" [value]="x[1]" [maxValue]="maxYValue"></app-bar>
                 <div class="Xname">{{x[0]}}</div>
             </div>
     </div>  
