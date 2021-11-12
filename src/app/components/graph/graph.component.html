@@ -1,8 +1,8 @@
 <select [(ngModel)]="selectedColumn" (ngModelChange)="this.changeColumn()">
     <option *ngFor="let value of header" [value]="value[1]"> {{value[0]}}</option>
 </select>
-<app-bar-chart [report]="reportBest5"></app-bar-chart>
+<app-bar-chart type="bar" [report]="reportBest5"></app-bar-chart>
 
 <br>
 <br>
-<app-line-chart [report]="reportDailyCosts"></app-line-chart>
+<app-bar-chart type="line" [report]="reportDailyCosts"></app-bar-chart>

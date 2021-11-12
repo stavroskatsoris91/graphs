@@ -6,9 +6,9 @@
             </div>
         </div>
         <div class="axisX" #axisX>
-            <div class="Xvalue" [style.width]="(axisX.clientWidth/report.length)+'px'" *ngFor="let x of report">
-                <app-bar [maxHeight]="axisY.clientHeight/maxValue" [value]="x[1]"></app-bar>
-                <div class="Xname">{{x[0]}}</div>
+            <div class="Xvalue" [style.width]="(axisX.clientWidth/report.length)+'px'" *ngFor="let x of report; let i = index">
+                <app-bar *ngIf="type=='bar'" [maxHeight]="axisY.clientHeight/maxValue" [values]="x"></app-bar>
+                <app-line *ngIf="type=='line'" [maxHeight]="axisY.clientHeight/maxValue" [width]="(axisX.clientWidth/report.length)" [values]="x" [nextValues]="report[i+1]"></app-line>
             </div>
     </div>  
 </div>

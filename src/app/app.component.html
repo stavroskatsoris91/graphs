@@ -309,6 +309,9 @@
   </select>
   <app-spend-table [spends]="(transactionsList | async)"></app-spend-table>
   <app-graph [spends]="transactionsList | async"></app-graph>
+  <select [(ngModel)]="selectedMonth" (ngModelChange)="this.callMonth()">
+    <option *ngFor="let value of months" [value]="value[1]"> {{value[0]}}</option>
+  </select>
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

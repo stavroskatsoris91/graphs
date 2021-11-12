@@ -1,19 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.scss']
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent {
 
-  @Input() report:[string,number][]=[['',0]]
+  @Input() report:[string|number,number][]=[]
+  @Input() type:string = 'bar';
 
   yListLength = 10;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
   get maxValue():number{
     return this.report.length&&Math.max(...this.report.map((a) => a[1]))
   }

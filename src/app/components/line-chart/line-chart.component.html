@@ -7,8 +7,7 @@
         </div>
         <div class="axisX" #axisX>
             <div class="Xvalue" [style.width]="(axisX.clientWidth/report.length)+'px'" *ngFor="let x of report; let i = index">
-                <app-line [maxHeight]="axisY.clientHeight/maxValue" [width]="(axisX.clientWidth/report.length)" [value]="x[1]" [nextValue]="report[i+1]&&report[i+1][1]"></app-line>
-                <div class="Xname">{{x[0] | date: 'd/M'}}</div>
+                <app-line [maxHeight]="axisY.clientHeight/maxValue" [width]="(axisX.clientWidth/report.length)" [values]="x" [nextValues]="report[i+1]"></app-line>
             </div>
     </div>  
 </div>

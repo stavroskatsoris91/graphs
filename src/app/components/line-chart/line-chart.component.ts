@@ -6,11 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./line-chart.component.scss']
 })
 export class LineChartComponent {
-  @Input() report:[number,number][]=[[0,0]]
+  @Input() report:[number|number,number][]=[]
 
   yListLength = 10;
-  constructor() { }
-
   get maxValue():number{
     return this.report.length&&Math.max(...this.report.map((a) => a[1]))
   }

@@ -9,14 +9,14 @@ export class LineComponent {
 
   @Input() maxHeight:number = 0;
   @Input() width:number = 0;
-  @Input() value:number = 0;
-  @Input() nextValue:number = 0;
+  @Input() values:[number|string,number] = [0,0];
+  @Input() nextValues:[number|string,number] = [0,0];
 
   get pointPosition():number{
-    return this.maxHeight*this.value
+    return this.maxHeight*this.values[1]
   }
   get distanceY(){
-    return this.maxHeight*(this.value-this.nextValue)
+    return this.maxHeight*(this.values[1]-this.nextValues[1])
   }
   get lineWidth(){
     return Math.sqrt(Math.pow(this.width,2) + Math.pow(this.distanceY,2) )

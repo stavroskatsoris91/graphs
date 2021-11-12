@@ -8,9 +8,9 @@ import { Component, Input } from '@angular/core';
 export class BarComponent{
 
   @Input() maxHeight:number = 0;
-  @Input() value:number = 0;
+  @Input() values:[string|number,number] = ['',0];
 
   get barHeight():number{
-    return this.maxHeight*this.value
+    return this.maxHeight*this.values[1]
   }
 }
