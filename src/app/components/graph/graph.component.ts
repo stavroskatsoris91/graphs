@@ -34,7 +34,7 @@ export class GraphComponent implements OnInit {
   changeColumn(){
     this.reportBest5 = this.getBestFive()
   }
-  getBestFive(){
+  getBestFive():[string,number][]{
     const { _list, _priceColumn, selectedColumn } = this;
     const valueMap = new Map<string, number>([]);
     _list.map((row) => {
@@ -47,7 +47,7 @@ export class GraphComponent implements OnInit {
 
     return [...valueMap.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
   }
-  getDailyCosts(){
+  getDailyCosts():[number,number][]{
     const { _list, _priceColumn, _dateColumn } = this;
     const valueMap = new Map<number, number>([]);
     _list.map((row) => {
@@ -62,6 +62,7 @@ export class GraphComponent implements OnInit {
     // entry&&valueMap.delete(entry[0])
     return [...valueMap.entries()];
   }
+  
   dateFormat(dateInput:string){
     return new Date(dateInput.split('/').reverse().join('-')).getTime();
   }

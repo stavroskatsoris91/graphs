@@ -7,12 +7,12 @@ import { SpendTableComponent } from './components/spend-table/spend-table.compon
 import { PagingComponent } from './components/paging/paging.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { RoundNumberPipe } from './round-number.pipe';
-import { BarComponent } from './components/bar/bar.component';
 import { FormsModule } from '@angular/forms';
-import { BarChartComponent } from './components/bar-chart/bar-chart.component';
-import { LineChartComponent } from './components/line-chart/line-chart.component';
-import { LineComponent } from './components/line/line.component';
-import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { BarChartComponent } from './components/graph/components/bar-chart/bar-chart.component';
+import { BarComponent } from './components/graph/components/bar/bar.component';
+import { LineChartComponent } from './components/graph/components/line-chart/line-chart.component';
+import { LineComponent } from './components/graph/components/line/line.component';
+import { PieChartComponent } from './components/graph/components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PagingComponent } from '../paging/paging.component';
 
 import { SpendTableComponent } from './spend-table.component';
 
@@ -8,7 +9,7 @@ describe('SpendTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpendTableComponent ]
+      declarations: [ SpendTableComponent, PagingComponent ]
     })
     .compileComponents();
   });
