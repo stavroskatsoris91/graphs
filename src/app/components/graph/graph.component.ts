@@ -26,6 +26,7 @@ export class GraphComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /** Update Graph */
   setGraph() {
     this.reportBest5 = this.getBestFive()
     this.reportDailyCosts = this.getDailyCosts();
@@ -34,6 +35,8 @@ export class GraphComponent implements OnInit {
   changeColumn(){
     this.reportBest5 = this.getBestFive()
   }
+
+  /** Get 5 groups with the highest cost*/
   getBestFive():[string,number][]{
     const { _list, _priceColumn, selectedColumn } = this;
     const valueMap = new Map<string, number>([]);
@@ -70,6 +73,8 @@ export class GraphComponent implements OnInit {
     const dateType = isNaN(dateInput)?dateInput.split('/').reverse().join('-'):Number(dateInput)
     return new Date(dateType).getTime();
   }
+
+  /** Set map of 2 values */
   valuePrice(map: any, value: string|number, price: number) {
     map.has(value)
       ? map.set(value, map.get(value) + price)
