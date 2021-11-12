@@ -1,0 +1,10 @@
+<div class="chartContainer">
+    <div class="pieChart" [style.background]="styleBackground"></div>
+
+    <div class="legenda">
+        <div class="entry" *ngFor="let entry of reportBest5;let i = index">
+            <div class="entryColor" [style.backgroundColor]="colourList[i]"></div>
+            <div class="entryText">{{entry&&entry[0]}}</div>
+        </div>
+    </div>
+</div>

@@ -16,7 +16,10 @@ export class LineComponent {
     return this.maxHeight*this.values[1]
   }
   get distanceY(){
-    return this.maxHeight*(this.values[1]-this.nextValues[1])
+    return this.maxHeight*(this.values[1]-this.nextValue)
+  }
+  get nextValue(){
+    return this.nextValues?this.nextValues[1]:0
   }
   get lineWidth(){
     return Math.sqrt(Math.pow(this.width,2) + Math.pow(this.distanceY,2) )

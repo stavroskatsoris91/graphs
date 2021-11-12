@@ -1,0 +1,30 @@
+.chartContainer {
+    display: flex;
+    align-items: center;
+    .pieChart {
+        border-radius: 50%;
+        width: 300px;
+        height: 300px;
+    }
+    .legenda {
+        margin-left: 20px;
+        background-color: white;
+        padding: 5px;
+    }
+    
+    .entry {
+        display: flex;
+        align-items: center;
+    
+        .entryColor {
+            height: 10px;
+            width: 10px;
+        }
+        .entryText {
+            margin-left: 5px;
+        }
+    }
+    
+    
+}
+

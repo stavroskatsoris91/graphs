@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { LineComponent } from './components/line/line.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LineComponent } from './components/line/line.component';
     BarComponent,
     BarChartComponent,
     LineChartComponent,
-    LineComponent
+    LineComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
