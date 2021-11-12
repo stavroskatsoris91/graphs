@@ -7,11 +7,12 @@ import { GraphComponent } from '../../graph.component';
   styleUrls: ['./pie-chart.component.scss'],
 })
 export class PieChartComponent extends GraphComponent {
-
   colourList = ['brown', 'black', 'blue', 'green', 'yellow', 'orange', 'red'];
+  
   get styleBackground() {
     return `conic-gradient(${this.colors})`;
   }
+
   get colors() {
     const total = this.reportBest5.reduce((a, [name, price]) => a + price, 0);
     const perc = this.reportBest5.reduce((a: number[][], [name, price]) => {
@@ -20,6 +21,7 @@ export class PieChartComponent extends GraphComponent {
       price / total;
       return a;
     }, []);
+
     return perc
       .map((a, i) => {
         return [this.colourList[i], ...a.map((x) => x + '%')].join(' ');

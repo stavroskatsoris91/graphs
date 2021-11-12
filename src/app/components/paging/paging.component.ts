@@ -14,6 +14,7 @@ export class PagingComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  /** display the number close to the selected values */
   get pageArray():number[]{
     const min = Math.max(0,this.selectedPage-3)
     const max = Math.min(this.pages,this.selectedPage+3)

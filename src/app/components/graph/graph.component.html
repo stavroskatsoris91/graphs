@@ -1,3 +1,4 @@
+<!-- Local Selector -->
 <select [(ngModel)]="selectedColumn" (ngModelChange)="this.changeColumn()">
     <option *ngFor="let value of header" [value]="value[1]"> {{value[0]}}</option>
 </select>

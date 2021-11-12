@@ -15,16 +15,22 @@ export class LineComponent {
   get pointPosition():number{
     return this.maxHeight*this.values[1]
   }
-  get distanceY(){
+  
+  get distanceY():number{
     return this.maxHeight*(this.values[1]-this.nextValue)
   }
-  get nextValue(){
+
+  get nextValue():number{
     return this.nextValues?this.nextValues[1]:0
   }
-  get lineWidth(){
+
+  /** Pythagoras theorem hypotenuse  */
+  get lineWidth():number{
     return Math.sqrt(Math.pow(this.width,2) + Math.pow(this.distanceY,2) )
   }
-  get rotation(){
+
+  /** Hypotenuse degree */
+  get rotation():number{
     return Math.asin(this.distanceY / this.lineWidth) *180/Math.PI
   }
 

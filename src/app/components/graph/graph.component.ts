@@ -47,6 +47,8 @@ export class GraphComponent implements OnInit {
 
     return [...valueMap.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
   }
+
+  /** Groupt and extrackt the daily costs of the list  */
   getDailyCosts():[number,number][]{
     const { _list, _priceColumn, _dateColumn } = this;
     const valueMap = new Map<number, number>([]);
@@ -62,9 +64,11 @@ export class GraphComponent implements OnInit {
     // entry&&valueMap.delete(entry[0])
     return [...valueMap.entries()];
   }
-  
-  dateFormat(dateInput:string){
-    return new Date(dateInput.split('/').reverse().join('-')).getTime();
+
+  /** Change date format to  */
+  dateFormat(dateInput:any){
+    const dateType = isNaN(dateInput)?dateInput.split('/').reverse().join('-'):Number(dateInput)
+    return new Date(dateType).getTime();
   }
   valuePrice(map: any, value: string|number, price: number) {
     map.has(value)
