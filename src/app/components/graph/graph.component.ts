@@ -31,6 +31,9 @@ export class GraphComponent implements OnInit {
     this.reportDailyCosts = this.getDailyCosts();
     
   }
+  changeColumn(){
+    this.reportBest5 = this.getBestFive()
+  }
   getBestFive(){
     const { _list, _priceColumn, selectedColumn } = this;
     const valueMap = new Map<string, number>([]);
@@ -54,6 +57,9 @@ export class GraphComponent implements OnInit {
         Number(row[_priceColumn])
       );
     });
+    // const max = Math.max(...valueMap.values())
+    // const entry = [...valueMap.entries()].find((x)=>x[1]==max)
+    // entry&&valueMap.delete(entry[0])
     return [...valueMap.entries()];
   }
   dateFormat(dateInput:string){

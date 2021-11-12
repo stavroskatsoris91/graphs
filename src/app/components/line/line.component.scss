@@ -6,7 +6,7 @@
     border-radius: 50%;
     position: absolute;
     z-index: 1;
-    transform: translate(-40%, -40%);
+    transform: translate(-50%, -40%);
     top: 0;
     transition: top 1s;
     .pointValue {
@@ -25,11 +25,11 @@
 }
 .line{
     position: absolute;
-    width: 100%;
+    width: 0;
     height: 4px;
     background-color: #7fc2eb;
     transform-origin: left bottom;
     top: 0;
     transform: rotate(0deg);
-    transition: top 1s, transform 1s;
+    transition: top 1s, width 1.5s ease-in;
 }

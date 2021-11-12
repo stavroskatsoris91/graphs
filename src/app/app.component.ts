@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TransactionService } from './services/transaction.service';
+import { ToArray, TransactionMonth, TransactionService } from './services/transaction.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,13 @@ import { TransactionService } from './services/transaction.service';
 
 export class AppComponent {
   title = 'graph-project';
-  public transactionsList: Observable<string[][]> = this.transactions.getTransaction();
+  selectedMonth = TransactionMonth.DEC;
+  months = ToArray(TransactionMonth);
+  public transactionsList: Observable<string[][]> = this.transactions.getTransaction(this.selectedMonth);
+
   constructor(private readonly transactions: TransactionService){
+  }
+  callMonth(){
+    this.transactionsList = this.transactions.getTransaction(this.selectedMonth);
   }
 }
